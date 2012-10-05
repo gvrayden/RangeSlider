@@ -62,6 +62,9 @@ class YearSlider
     
     stroke(#ffffff,50);
     line(x,(y+y2)/2,x2,(y+y2)/2); //center line of the range slider.
+    
+    stroke(#ffffff);
+    line(getPositionYearMin(),(y+y2)/2,getPositionYearMax(),(y+y2)/2);
   }
   
   void updateSlider(float mx, float my){
@@ -102,5 +105,15 @@ class YearSlider
   int getYearPosition(float inx)
   {
     return (int)map(inx,x,x2,yearMin,yearMax);
+  }
+  
+  float getPositionYearMin()
+  {
+    return map(currentMinYear,yearMin,yearMax,x,x2);
+  }
+  
+  float getPositionYearMax()
+  {
+    return map(currentMaxYear,yearMin,yearMax,x,x2);
   }
 }
